@@ -145,18 +145,26 @@ private struct ScrollImageView: View {
                     LazyVStack {
                         HStack {
                             // первая картинка
-                            ImageView(url: URL(string: image.webformatURL),
-                                      tags: image.tags) {
-                                
-                                if !self.isLoadMore,
-                                   image.id == self.firstImages.last?.id {
-                                    self.completion?()
+                            NavigationLink(destination: DetailedView(firstString: image.webformatURL,
+                                                                     secondString: secondImage?.webformatURL,
+                                                                     number: 1)) {
+                                ImageView(url: URL(string: image.webformatURL),
+                                          tags: image.tags) {
+                                    
+                                    if !self.isLoadMore,
+                                       image.id == self.firstImages.last?.id {
+                                        self.completion?()
+                                    }
                                 }
                             }
                             // вторая картинка
                             if let secondImage {
-                                ImageView(url: URL(string: secondImage.webformatURL),
-                                          tags: secondImage.tags)
+                                NavigationLink(destination: DetailedView(firstString: image.webformatURL,
+                                                                         secondString: secondImage.webformatURL,
+                                                                         number: 2)) {
+                                    ImageView(url: URL(string: secondImage.webformatURL),
+                                              tags: secondImage.tags)
+                                }
                             }
                         }
                         .padding(.vertical, 10)
