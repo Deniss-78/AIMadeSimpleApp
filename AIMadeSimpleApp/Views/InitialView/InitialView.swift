@@ -1,5 +1,5 @@
 //
-//  AIMadeSimpleAppApp.swift
+//  InitialView.swift
 //  AIMadeSimpleApp
 //
 //  Created by Denis Kravets on 28.2.25.
@@ -9,10 +9,10 @@
 import SwiftUI
 
 @main
-struct AIMadeSimpleAppApp: App {
+struct InitialView: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ListView()
         }
     }
 }
